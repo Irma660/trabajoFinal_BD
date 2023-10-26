@@ -6,10 +6,10 @@
     </x-slot>
 
 
-<div class="container">
-    <h1>Lista de Ventas</h1>
-
-    <table class="table">
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <a href="{{ route('createV') }}" class="btn btn-primary">Agregar Venta</a>
+            <table class="table mt-4">
         <thead>
             <tr>
                 <th>ID de Venta</th>
