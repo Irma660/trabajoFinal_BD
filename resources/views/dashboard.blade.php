@@ -37,6 +37,7 @@
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este producto?')">Eliminar</button>
                             </form>
                         </td>
+                        
                     </tr>
                     @endforeach
                 </tbody>

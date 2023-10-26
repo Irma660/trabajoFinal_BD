@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group">
                     <label for="precio">Precio:</label>
-                    <input type="number" name="precio" id="precio" class="form-control" value="{{ $producto->precio }}">
+                    <input type="number" name="precio" id="precio" step="0.01" class="form-control" value="{{ $producto->precio }}">
                 </div>
                 <div class="form-group">
                     <label for="categoria">Categoría:</label>
