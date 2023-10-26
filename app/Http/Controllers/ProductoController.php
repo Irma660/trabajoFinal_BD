@@ -22,7 +22,7 @@ class ProductoController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'precio' => 'required|decimal',
+            'precio' => 'required|numeric',
             'categoria' => 'required',
             'stock' => 'required|integer',
             'proveedor' => 'required',
@@ -53,7 +53,7 @@ class ProductoController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'precio' => 'required|decimal',
+            'precio' => 'required|numeric',
             'categoria' => 'required',
             'stock' => 'required|integer',
             'proveedor' => 'required',
