@@ -34,10 +34,10 @@
                             <form action="{{ route('destroy', $producto) }}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este producto?')">Eliminar</button>
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este producto?')" style="background-color: red; color: white;">Eliminar</button>
                             </form>
                         </td>
-                        
+
                     </tr>
                     @endforeach
                 </tbody>

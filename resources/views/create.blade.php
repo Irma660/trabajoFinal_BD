@@ -30,7 +30,7 @@
                     <label for="proveedor">Proveedor:</label>
                     <input type="text" name="proveedor" id="proveedor" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="submit" class="btn btn-success" style="background-color: green; color: white;">Guardar</button>
             </form>
         </div>
     </div>
