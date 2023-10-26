@@ -7,11 +7,41 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+            <a href="{{ route('productos.create') }}" class="btn btn-primary">Agregar Producto</a>
+            <table class="table mt-4">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Categoría</th>
+                        <th>Stock</th>
+                        <th>Proveedor</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($productos as $producto)
+                    <tr>
+                        <td>{{ $producto->id }}</td>
+                        <td>{{ $producto->nombre }}</td>
+                        <td>{{ $producto->precio }}</td>
+                        <td>{{ $producto->categoria }}</td>
+                        <td>{{ $producto->stock }}</td>
+                        <td>{{ $producto->proveedor }}</td>
+                        <td>
+                            <a href="{{ route('productos.show', $producto) }}" class="btn btn-info">Ver</a>
+                            <a href="{{ route('productos.edit', $producto) }}" class="btn btn-primary">Editar</a>
+                            <form action="{{ route('productos.destroy', $producto) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este producto?')">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </x-app-layout>

@@ -10,7 +10,7 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = Producto::all();
-        return view('productos.index', compact('productos'));
+        return view('dashboard', compact('productos'));
     }
 
     public function create()
@@ -37,7 +37,7 @@ class ProductoController extends Controller
 
         $producto->save();
 
-        return redirect()->route('productos.index');
+        return redirect()->route('dashboard');
     }
     public function show(Producto $producto)
     {
@@ -66,14 +66,14 @@ class ProductoController extends Controller
         $producto->proveedor = $request->input('proveedor');
         $producto->save();
 
-        return redirect()->route('productos.index')
+        return redirect()->route('dashboard')
             ->with('success', 'Producto actualizado exitosamente');
     }
 
     public function destroy(Producto $producto)
     {
         $producto->delete();
-        return redirect()->route('productos.index')
+        return redirect()->route('dashboard')
             ->with('success', 'Producto eliminado exitosamente');
     }
 }

@@ -30,12 +30,12 @@ Route::middleware('auth')->group(function () {
 });
 
 //RUTAS DE INGRESAR PRODUCTO
-Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
-Route::get('/productos/create', [ProductoController::class, 'create'])->name('productos.create');
-Route::post('/productos', [ProductoController::class, 'store'])->name('productos.store');
-Route::get('/productos/{producto}', [ProductoController::class, 'show'])->name('productos.show');
-Route::get('/productos/{producto}/edit', [ProductoController::class, 'edit'])->name('productos.edit');
-Route::put('/productos/{producto}', [ProductoController::class, 'update'])->name('productos.update');
-Route::delete('/productos/{producto}', [ProductoController::class, 'destroy'])->name('productos.destroy');
+Route::get('/dashboard', [ProductoController::class, 'index'])->name('productos.index');
+Route::get('/dashboard/create', [ProductoController::class, 'create'])->name('productos.create');
+Route::post('/dashboard', [ProductoController::class, 'store'])->name('productos.store');
+Route::get('/dashboard/{producto}', [ProductoController::class, 'show'])->name('productos.show');
+Route::get('/dashboard/{producto}/edit', [ProductoController::class, 'edit'])->name('productos.edit');
+Route::put('/dashboard/{producto}', [ProductoController::class, 'update'])->name('productos.update');
+Route::delete('/dashboard/{producto}', [ProductoController::class, 'destroy'])->name('productos.destroy');
 
 require __DIR__.'/auth.php';
