@@ -12,8 +12,8 @@ class VentaController extends Controller
 {
     public function index()
     {
-        $productos = Producto::all();
-        return view('ventas', compact('productos'));
+        $ventas = Ventas::all();
+        return view('ventas', compact('ventas'));
     }
     
     public function create()
