@@ -22,7 +22,7 @@ class ProductoController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'precio' => 'required|numeric',
+            'precio' => 'required|decimal',
             'categoria' => 'required',
             'stock' => 'required|integer',
             'proveedor' => 'required',
@@ -38,5 +38,42 @@ class ProductoController extends Controller
         $producto->save();
 
         return redirect()->route('productos.index');
+    }
+    public function show(Producto $producto)
+    {
+        return view('productos.show', compact('producto'));
+    }
+
+    public function edit(Producto $producto)
+    {
+        return view('productos.edit', compact('producto'));
+    }
+
+    public function update(Request $request, Producto $producto)
+    {
+        $request->validate([
+            'nombre' => 'required',
+            'precio' => 'required|decimal',
+            'categoria' => 'required',
+            'stock' => 'required|integer',
+            'proveedor' => 'required',
+        ]);
+
+        $producto->nombre = $request->input('nombre');
+        $producto->precio = $request->input('precio');
+        $producto->categoria = $request->input('categoria');
+        $producto->stock = $request->input('stock');
+        $producto->proveedor = $request->input('proveedor');
+        $producto->save();
+
+        return redirect()->route('productos.index')
+            ->with('success', 'Producto actualizado exitosamente');
+    }
+
+    public function destroy(Producto $producto)
+    {
+        $producto->delete();
+        return redirect()->route('productos.index')
+            ->with('success', 'Producto eliminado exitosamente');
     }
 }
