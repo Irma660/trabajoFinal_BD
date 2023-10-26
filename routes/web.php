@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,5 +38,14 @@ Route::get('/dashboard/{producto}', [ProductoController::class, 'show'])->name('
 Route::get('/dashboard/{producto}/edit', [ProductoController::class, 'edit'])->name('edit');
 Route::put('/dashboard/{producto}', [ProductoController::class, 'update'])->name('update');
 Route::delete('/dashboard/{producto}', [ProductoController::class, 'destroy'])->name('destroy');
+
+//RUTAS DE INGRESAR VENTAS
+Route::get('/ventas/create', [VentaController::class, 'create'])->name('ventas.create');
+Route::post('/ventas', [VentaController::class, 'store'])->name('ventas.store');
+Route::get('/ventas', [VentaController::class, 'index'])->name('ventas.index');
+Route::get('/ventas/{venta}', [VentaController::class, 'show'])->name('ventas.show');
+Route::get('/ventas/{venta}/edit', [VentaController::class, 'edit'])->name('ventas.edit');
+Route::put('/ventas/{venta}', [VentaController::class, 'update'])->name('ventas.update');
+Route::delete('/ventas/{venta}', [VentaController::class, 'destroy'])->name('ventas.destroy');
 
 require __DIR__.'/auth.php';
