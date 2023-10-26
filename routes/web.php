@@ -40,12 +40,12 @@ Route::put('/dashboard/{producto}', [ProductoController::class, 'update'])->name
 Route::delete('/dashboard/{producto}', [ProductoController::class, 'destroy'])->name('destroy');
 
 //RUTAS DE INGRESAR VENTAS
-Route::get('/ventas/create', [VentaController::class, 'create'])->name('ventas.create');
-Route::post('/ventas', [VentaController::class, 'store'])->name('ventas.store');
-Route::get('/ventas', [VentaController::class, 'index'])->name('ventas.index');
-Route::get('/ventas/{venta}', [VentaController::class, 'show'])->name('ventas.show');
-Route::get('/ventas/{venta}/edit', [VentaController::class, 'edit'])->name('ventas.edit');
-Route::put('/ventas/{venta}', [VentaController::class, 'update'])->name('ventas.update');
-Route::delete('/ventas/{venta}', [VentaController::class, 'destroy'])->name('ventas.destroy');
+Route::get('/ventas/create', [VentaController::class, 'create'])->name('createV');
+Route::post('/ventas', [VentaController::class, 'store'])->name('storeV');
+Route::get('/ventas', [VentaController::class, 'index'])->name('ventas');
+Route::get('/ventas/{venta}', [VentaController::class, 'show'])->name('showV');
+Route::get('/ventas/{venta}/edit', [VentaController::class, 'edit'])->name('editV');
+Route::put('/ventas/{venta}', [VentaController::class, 'update'])->name('updateV');
+Route::delete('/ventas/{venta}', [VentaController::class, 'destroy'])->name('destroyV');
 
 require __DIR__.'/auth.php';
