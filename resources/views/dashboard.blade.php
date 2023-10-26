@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <a href="{{ route('productos.create') }}" class="btn btn-primary">Agregar Producto</a>
+            <a href="{{ route('create') }}" class="btn btn-primary">Agregar Producto</a>
             <table class="table mt-4">
                 <thead>
                     <tr>
@@ -17,7 +17,6 @@
                         <th>Categoría</th>
                         <th>Stock</th>
                         <th>Proveedor</th>
-                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,9 +29,9 @@
                         <td>{{ $producto->stock }}</td>
                         <td>{{ $producto->proveedor }}</td>
                         <td>
-                            <a href="{{ route('productos.show', $producto) }}" class="btn btn-info">Ver</a>
-                            <a href="{{ route('productos.edit', $producto) }}" class="btn btn-primary">Editar</a>
-                            <form action="{{ route('productos.destroy', $producto) }}" method="POST" style="display: inline;">
+                            <a href="{{ route('show', $producto) }}" class="btn btn-info">Ver</a>
+                            <a href="{{ route('edit', $producto) }}" class="btn btn-primary">Editar</a>
+                            <form action="{{ route('destroy', $producto) }}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este producto?')">Eliminar</button>
