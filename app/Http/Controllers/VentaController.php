@@ -12,14 +12,15 @@ class VentaController extends Controller
 {
     public function index()
     {
-        //$ventas = Ventas::all();
+        $ventas = Ventas::all();
         $productos = Producto::all();
-        return view('createV', compact('productos'));
+        return view('ventas', compact('productos', 'ventas'));
     }
-    
+
     public function create()
     {
-        return view('createV');
+        $productos = Producto::all();
+        return view('createV', compact('productos'));
     }
 
     public function store(Request $request)
@@ -30,22 +31,23 @@ class VentaController extends Controller
             'fecha_venta' => 'required|date',
             'precio_unitario' => 'required|numeric|min:0',
         ]);
-    
+
         // Encuentra el producto por su nombre
         $producto = Producto::where('nombre', $request->input('producto_nombre'))->first();
-    
+
         if (!$producto) {
             return redirect()->route('createV')->with('error', 'El producto no se encontró en la base de datos.');
         }
-    
+
         // Crea la venta relacionada con el producto
         Ventas::create([
+            'producto_id' => $producto->id,
             'producto_nombre' => $request->input('producto_nombre'),
             'cantidad' => $request->input('cantidad'),
             'fecha_venta' => $request->input('fecha_venta'),
             'precio_unitario' => $request->input('precio_unitario'),
         ]);
-    
+
         return redirect()->route('ventas')->with('success', 'Venta registrada con éxito');
     }
 
@@ -56,7 +58,8 @@ class VentaController extends Controller
 
     public function edit(Ventas $venta)
     {
-        return view('editV', compact('venta'));
+        $productos = Producto::all();
+        return view('editV', compact('venta', 'productos'));
     }
 
     public function update(Request $request, Ventas $venta)

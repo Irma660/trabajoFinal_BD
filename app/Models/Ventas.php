@@ -10,6 +10,7 @@ class Ventas extends Model
 {
     protected $fillable = [
         'producto_id',
+        'producto_nombre',
         'cantidad',
         'fecha_venta',
         'precio_unitario',

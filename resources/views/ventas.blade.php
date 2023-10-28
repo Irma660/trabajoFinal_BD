@@ -27,6 +27,7 @@
                 <td>{{ $venta->cantidad }}</td>
                 <td>{{ $venta->fecha_venta }}</td>
                 <td>{{ $venta->precio_unitario }}</td>
+                <td>
                 <a href="{{ route('showV', $venta) }}" class="btn btn-info">Ver</a>
                 <a href="{{ route('editV', $venta) }}" class="btn btn-primary">Editar</a>
                 <form action="{{ route('destroy', $venta) }}" method="POST" style="display: inline;">
@@ -34,6 +35,7 @@
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este producto?')" style="background-color: red; color: white;">Eliminar</button>
                 </form>
+                </td>
             </tr>
             @endforeach
         </tbody>

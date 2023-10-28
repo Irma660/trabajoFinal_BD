@@ -1,12 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Editar Venta') }}
+            Editar Venta
         </h2>
     </x-slot>
-    <div class="container">
-        <h1>Editar Venta</h1>
-
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <form method="POST" action="{{ route('updateV', $venta) }}">
             @csrf
             @method('PUT')
@@ -34,11 +33,13 @@
                 <label for="precio_unitario">Precio Unitario:</label>
                 <input type="number" class="form-control" id="precio_unitario" name="precio_unitario" value="{{ $venta->precio_unitario }}">
             </div>
-
-            <button type="submit" class="btn btn-primary">Actualizar Venta</button>
         </form>
 
+        <div class="form-group d-flex justify-content-between">
+        <button type="submit" class="btn btn-success" style="background-color: green; color: white;">Actualizar Venta</button>
         <a href="{{ route('ventas') }}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </div>
     </div>
 
     </x-app-layout>
