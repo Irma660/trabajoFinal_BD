@@ -12,8 +12,9 @@ class VentaController extends Controller
 {
     public function index()
     {
-        $ventas = Ventas::all();
-        return view('ventas', compact('ventas'));
+        //$ventas = Ventas::all();
+        $productos = Producto::all();
+        return view('createV', compact('productos'));
     }
     
     public function create()
@@ -31,21 +32,21 @@ class VentaController extends Controller
         ]);
     
         // Encuentra el producto por su nombre
-        $producto = Producto::where('nombre', $validatedData['producto_nombre'])->first();
+        $producto = Producto::where('nombre', $request->input('producto_nombre'))->first();
     
         if (!$producto) {
-            return redirect()->route('ventas.create')->with('error', 'El producto no se encontró en la base de datos.');
+            return redirect()->route('createV')->with('error', 'El producto no se encontró en la base de datos.');
         }
     
         // Crea la venta relacionada con el producto
         Ventas::create([
-            'producto_id' => $producto->id,
-            'cantidad' => $validatedData['cantidad'],
-            'fecha_venta' => $validatedData['fecha_venta'],
-            'precio_unitario' => $validatedData['precio_unitario'],
+            'producto_nombre' => $request->input('producto_nombre'),
+            'cantidad' => $request->input('cantidad'),
+            'fecha_venta' => $request->input('fecha_venta'),
+            'precio_unitario' => $request->input('precio_unitario'),
         ]);
     
-        return redirect()->route('ventas.index')->with('success', 'Venta registrada con éxito');
+        return redirect()->route('ventas')->with('success', 'Venta registrada con éxito');
     }
 
     public function show(Ventas $venta)
