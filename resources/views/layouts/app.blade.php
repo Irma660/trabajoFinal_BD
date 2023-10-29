@@ -7,7 +7,6 @@
         <link rel="icon" href="icon/shop.ico" /> <title>MARKET</title>
 
         
-
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
