@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link rel="icon" href="icon/shop.ico" /> <title>MARKET</title>
+        <link rel="icon" href="{{ asset('assets/icon/shop.ico') }}" /> <title>MARKET</title>
 
         
         <!-- Fonts -->

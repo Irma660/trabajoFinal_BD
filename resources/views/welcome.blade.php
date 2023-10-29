@@ -285,7 +285,8 @@
 <footer class="bg-dark py-5"
     style="background-image: url('/assets/img/fondo.jpg'); background-size: cover; background-position: center;">
     <div class="container">
-        <p class="m-0 text-center text-black">Copyright © Your Website 2023</p>
+        <p class="m-0 text-center text-black">Copyright © Huanuco Market 2023</p>
+        <p class="m-0 text-center text-black">IMZP</p>
     </div>
 </footer>
 <!-- Bootstrap core JS-->
