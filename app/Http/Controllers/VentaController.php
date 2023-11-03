@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Ventas;
 use App\Models\Producto;
 
-
-
 class VentaController extends Controller
 {
     public function index()

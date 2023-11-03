@@ -36,19 +36,16 @@ class ProductoController extends Controller
         $producto->proveedor = $request->input('proveedor');
 
         $producto->save();
-
         return redirect()->route('dashboard');
     }
     public function show(Producto $producto)
     {
         return view('show', compact('producto'));
     }
-
     public function edit(Producto $producto)
     {
         return view('edit', compact('producto'));
     }
-
     public function update(Request $request, Producto $producto)
     {
         $request->validate([
