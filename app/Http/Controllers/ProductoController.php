@@ -73,4 +73,13 @@ class ProductoController extends Controller
         return redirect()->route('dashboard')
             ->with('success', 'Producto eliminado exitosamente');
     }
+    public function buscarProducto(Request $request)
+{
+    $nombre = $request->input('nombre');
+    
+    // Realiza la consulta en la base de datos para buscar productos por nombre
+    $productos = Producto::where('nombre', 'like', "%$nombre%")->get();
+
+    return view('buscarProducto', compact('productos'));
+}
 }

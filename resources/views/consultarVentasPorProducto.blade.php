@@ -7,8 +7,6 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <a href="{{ route('createV') }}" class="btn btn-primary">Agregar Venta</a>
-
             <table class="table mt-4">
                 <thead>
                     <tr>
@@ -29,6 +27,7 @@
                     @endforeach
                 </tbody>
             </table>
+            <a href="{{ route('createV') }}" class="btn btn-primary">Agregar Venta</a>
         </div>
     </div>
 </x-app-layout>
