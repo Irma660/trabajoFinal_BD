@@ -36,6 +36,11 @@ class VentaController extends Controller
         if (!$producto) {
             return redirect()->route('createV')->with('error', 'El producto no se encontró en la base de datos.');
         }
+        // Verifica si hay suficiente stock para la venta
+    if ($producto->stock < $validatedData['cantidad']) {
+        return redirect()->route('createV')->with('error', 'No hay suficiente stock para esta venta.');
+    }
+    $total = $request->input('cantidad') * $request->input('precio_unitario');
 
         // Crea la venta relacionada con el producto
         Ventas::create([
@@ -44,11 +49,15 @@ class VentaController extends Controller
             'cantidad' => $request->input('cantidad'),
             'fecha_venta' => $request->input('fecha_venta'),
             'precio_unitario' => $request->input('precio_unitario'),
+            'total' => $total,
+            
         ]);
+
+        // Actualiza el stock del producto
+    $producto->decrement('stock', $validatedData['cantidad']);
 
         return redirect()->route('ventas')->with('success', 'Venta registrada con éxito');
     }
-
     public function show(Ventas $venta)
     {
         return view('showV', compact('venta'));

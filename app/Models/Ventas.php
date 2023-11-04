@@ -14,6 +14,7 @@ class Ventas extends Model
         'cantidad',
         'fecha_venta',
         'precio_unitario',
+        'total',
     ];
 
     public function producto()

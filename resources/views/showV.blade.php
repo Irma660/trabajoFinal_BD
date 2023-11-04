@@ -27,6 +27,10 @@
             <th>Precio Unitario:</th>
             <td>{{ $venta->precio_unitario }}</td>
         </tr>
+        <tr>
+            <th>Total:</th>
+            <td>{{ $venta->total }}</td>
+        </tr>
         </table>
         <div class="text-center mt-4">
             <a href="{{ route('ventas') }}" class="btn btn-primary">Volver a la Lista de Ventas</a>

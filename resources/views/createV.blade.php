@@ -3,9 +3,10 @@
     </h2>
 
     </x-slot> <div class="py-12"> <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-    <a href="{{ route('dashboard') }}" class="btn btn-primary">Volver a la lista de productos</a>
+    <a href="{{ route('ventas') }}" class="btn btn-primary">Volver a la lista de ventas</a>
     <form method="POST" action="{{ route('storeV') }}">
     @csrf
+
     <div class="form-group">
     <label for="producto_nombre">Producto:</label>
     <select name="producto_nombre" id="producto_nombre" class="form-control">
@@ -32,10 +33,32 @@
             <label for="precio_unitario">Precio Unitario:</label>
             <input type="text" name="precio_unitario" id="precio_unitario" class="form-control">
         </div>
+         <div class="form-group">
+                <label for="total">Total:</label>
+                <input type="text" class="form-control" id="total" name="total" readonly>
+            </div>
         <button type="submit" class="btn btn-success" style="background-color: green; color: white;">Registrar
             Venta</button>
         </form>
         </div>
         </div>
+        <script>
+        // Función para calcular el total en tiempo real
+        function calcularTotal() {
+            const cantidad = parseFloat($('#cantidad').val());
+            const precioUnitario = parseFloat($('#precio_unitario').val());
+            const total = cantidad * precioUnitario;
+
+            if (!isNaN(total)) {
+                $('#total').val(total.toFixed(2)); // Muestra el total con 2 decimales
+            }
+        }
+
+        // Escucha cambios en los campos de cantidad y precio unitario
+        $('#cantidad, #precio_unitario').on('input', calcularTotal);
+
+        // Calcula el total al cargar la página
+        calcularTotal();
+    </script>
 
         </x-app-layout>

@@ -34,6 +34,11 @@
                 <label for="precio_unitario">Precio Unitario:</label>
                 <input type="number" class="form-control" id="precio_unitario" name="precio_unitario" value="{{ $venta->precio_unitario }}">
             </div>
+
+            <div class="form-group">
+                <label for="total">Total:</label>
+                <input type="text" class="form-control" id="total" name="total" value="{{ $venta->total }}" readonly>
+            </div>
         </form>
 
         <div class="form-group d-flex justify-content-between">
