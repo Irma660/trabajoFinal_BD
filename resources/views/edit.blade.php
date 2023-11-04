@@ -7,8 +7,9 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="mb-3"> 
             <a href="{{ route('dashboard') }}" class="btn btn-primary">Volver a la lista de productos</a>
-
+           </div> 
             <form method="POST" action="{{ route('update', $producto) }}">
                 @csrf
                 @method('PUT')

@@ -103,26 +103,22 @@ class VentaController extends Controller
     return redirect()->route('ventas')->with('success', 'Venta registrada con éxito');
 }
 
-public function calcularTotalVenta($id)
-{
-    $venta = Ventas::findOrFail($id);
-    $total = $venta->cantidad * $venta->precio_unitario;
-
-    return view('calcularTotalVenta', compact('venta', 'total'));
-}
-
 public function generarReporteVentas()
 {
     $ventas = Ventas::all();
     return view('generarReporteVentas', compact('ventas'));
 }
 
-public function consultarVentasPorProducto($productoId)
+public function consultarVentasPorProducto(Request $request)
 {
-    $ventas = Ventas::where('producto_id', $productoId)->get();
-    $producto = Producto::findOrFail($productoId);
+    $producto_nombre = $request->input('producto_nombre');
 
-    return view('consultarVentasPorProducto', compact('ventas', 'producto'));
+    // Realiza la búsqueda en la base de datos
+    $ventas = Ventas::whereHas('producto', function ($query) use ($producto_nombre) {
+        $query->where('nombre', 'like', '%' . $producto_nombre . '%');
+    })->get();
+
+    return view('ventas', compact('ventas'));
 }
 
 public function consultarVentasPorFecha(Request $request)
