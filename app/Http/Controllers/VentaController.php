@@ -80,4 +80,52 @@ class VentaController extends Controller
 
         return redirect()->route('ventas')->with('success', 'Venta eliminada con éxito');
     }
+    public function registrarVenta(Request $request)
+{
+    $validatedData = $request->validate([
+        'producto_id' => 'required|exists:productos,id',
+        'cantidad' => 'required|integer|min:1',
+        'fecha_venta' => 'required|date',
+        'precio_unitario' => 'required|numeric|min:0',
+    ]);
+
+    Ventas::create($validatedData);
+
+    return redirect()->route('ventas')->with('success', 'Venta registrada con éxito');
+}
+
+public function calcularTotalVenta($id)
+{
+    $venta = Ventas::findOrFail($id);
+    $total = $venta->cantidad * $venta->precio_unitario;
+
+    return view('calcularTotalVenta', compact('venta', 'total'));
+}
+
+public function generarReporteVentas()
+{
+    $ventas = Ventas::all();
+    return view('generarReporteVentas', compact('ventas'));
+}
+
+public function consultarVentasPorProducto($productoId)
+{
+    $ventas = Ventas::where('producto_id', $productoId)->get();
+    $producto = Producto::findOrFail($productoId);
+
+    return view('consultarVentasPorProducto', compact('ventas', 'producto'));
+}
+
+public function consultarVentasPorFecha(Request $request)
+{
+    $validatedData = $request->validate([
+        'fecha_venta' => 'required|date',
+    ]);
+
+    $fechaVenta = $request->input('fecha_venta');
+
+    $ventas = Ventas::whereDate('fecha_venta', $fechaVenta)->get();
+
+    return view('consultarVentasPorFecha', compact('ventas', 'fechaVenta'));
+}
 }
