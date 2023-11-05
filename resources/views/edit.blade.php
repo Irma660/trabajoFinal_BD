@@ -36,10 +36,10 @@
                 </div>
                 <div class="form-group">
                     <label for="descripcion">Descripción:</label>
-                    <input type="text" name="descripcion" id="descripcion" class="form-control" value="{{ $producto->proveedor }}">
+                    <input type="text" name="descripcion" id="descripcion" class="form-control" value="{{ $producto->descripcion}}">
                 </div>
                 <div class="form-group d-flex justify-content-between">
-        <button type="submit" class="btn btn-success" style="background-color: green; color: white;">Actualizar Venta</button>
+        <button type="submit" class="btn btn-success" style="background-color: green; color: white;">Actualizar producto</button>
         <a href="{{ route('dashboard') }}" class="btn btn-secondary">Cancelar</a>
         </div>
             </form>

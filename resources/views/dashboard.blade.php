@@ -5,7 +5,7 @@
         <!-- Buscador de productos -->
         <form action="{{ route('buscarProducto') }}" method="get">
     <div class="input-group mb-3">
-        <input type="text" name="producto_nombre" class="form-control" placeholder="Consultar por Producto">
+        <input type="text" name="producto_nombre" class="form-control" placeholder="Buscar producto">
         <div class="input-group-append">
         <button type="submit" class="btn btn-primary" style="background-color: green; color: white;">Buscar</button>
         </div>
@@ -19,6 +19,7 @@
         <th>Categoría</th>
         <th>Stock</th>
         <th>Proveedor</th>
+        <th>Descripción</th>
         </tr>
         </thead>
         <tbody>

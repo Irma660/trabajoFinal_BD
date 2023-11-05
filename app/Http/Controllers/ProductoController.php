@@ -26,6 +26,7 @@ class ProductoController extends Controller
             'categoria' => 'required',
             'stock' => 'required|integer',
             'proveedor' => 'required',
+            'descripcion' => 'required',
         ]);
 
         $producto = new Producto();
@@ -34,6 +35,7 @@ class ProductoController extends Controller
         $producto->categoria = $request->input('categoria');
         $producto->stock = $request->input('stock');
         $producto->proveedor = $request->input('proveedor');
+        $producto->descripcion = $request->input('descripcion');
 
         $producto->save();
         return redirect()->route('dashboard');
@@ -54,6 +56,7 @@ class ProductoController extends Controller
             'categoria' => 'required',
             'stock' => 'required|integer',
             'proveedor' => 'required',
+            'descripcion' => 'required',
         ]);
 
         $producto->nombre = $request->input('nombre');
@@ -61,6 +64,7 @@ class ProductoController extends Controller
         $producto->categoria = $request->input('categoria');
         $producto->stock = $request->input('stock');
         $producto->proveedor = $request->input('proveedor');
+        $producto->descripcion = $request->input('descripcion');
         $producto->save();
 
         return redirect()->route('dashboard')

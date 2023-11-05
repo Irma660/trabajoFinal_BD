@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <form id="search-form" action="{{ route('buscarProducto') }}" method="get">
             <div class="input-group mb-3">
-        <input type="text" name="producto_nombre" class="form-control" placeholder="Consultar por Producto">
+        <input type="text" name="nombre" class="form-control" placeholder="Consultar por Producto">
         <div class="input-group-append">
         <button type="submit" class="btn btn-primary" style="background-color: green; color: white;">Buscar</button>
         </div>
