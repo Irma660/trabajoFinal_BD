@@ -34,6 +34,10 @@
                     <label for="proveedor">Proveedor:</label>
                     <input type="text" name="proveedor" id="proveedor" class="form-control" value="{{ $producto->proveedor }}">
                 </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" name="descripcion" id="descripcion" class="form-control" value="{{ $producto->proveedor }}">
+                </div>
                 <div class="form-group d-flex justify-content-between">
         <button type="submit" class="btn btn-success" style="background-color: green; color: white;">Actualizar Venta</button>
         <a href="{{ route('dashboard') }}" class="btn btn-secondary">Cancelar</a>

@@ -30,6 +30,8 @@
             <td>{{ $producto->categoria }}</td>
             <td>{{ $producto->stock }}</td>
             <td>{{ $producto->proveedor }}</td>
+            <td>{{ $producto->descripcion }}</td>
+
             <td>
             <a href="{{ route('show', $producto) }}" class="btn btn-info">Ver</a>
             <a href="{{ route('edit', $producto) }}" class="btn btn-primary">Editar</a>

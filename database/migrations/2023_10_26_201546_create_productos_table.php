@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('categoria');
             $table->integer('stock');
             $table->string('proveedor');
+            $table->text('descripcion');
             $table->timestamps();
         });
     }
