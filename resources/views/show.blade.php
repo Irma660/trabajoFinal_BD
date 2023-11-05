@@ -33,6 +33,10 @@
             <th>Proveedor:</th>
             <td>{{ $producto->proveedor }}</td>
         </tr>
+        <tr>
+            <th>Descripción:</th>
+            <td>{{ $producto->descripcion }}</td>
+        </tr>
         </table>
         <div class="text-center mt-4">
             <a href="{{ route('dashboard') }}" class="btn btn-primary">Volver a la lista de productos</a>

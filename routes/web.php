@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\ConocenosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,4 +47,6 @@ Route::delete('/ventas/{venta}', [VentaController::class, 'destroy'])->name('des
 Route::get('/generarReporteVentas', [VentaController::class, 'generarReporteVentas'])->name('generarReporteVentas');
 Route::get('/consultarVentasPorProducto', [VentaController::class, 'consultarVentasPorProducto'])->name('consultarVentasPorProducto');
 Route::get('/consultarVentasPorFecha', [VentaController::class, 'consultarVentasPorFecha'])->name('consultarVentasPorFecha');
+//CONOCENOS
+Route::get('/conocenos', [ConocenosController::class, 'index'])->name('conocenos');
 require __DIR__.'/auth.php';

@@ -27,6 +27,7 @@
                                     <th>Categoría</th>
                                     <th>Stock</th>
                                     <th>Proveedor</th>
+                                    <th>Descripcion</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,6 +39,7 @@
                                         <td>{{ $producto->categoria }}</td>
                                         <td>{{ $producto->stock }}</td>
                                         <td>{{ $producto->proveedor }}</td>
+                                        <td>{{ $producto->descripcion }}</td>
                         </tr>
                         @endforeach
                     </tbody>

@@ -30,6 +30,10 @@
                     <label for="proveedor">Proveedor:</label>
                     <input type="text" name="proveedor" id="proveedor" class="form-control">
                 </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" name="descripcion" id="descripcion" class="form-control">
+                </div>
                 <button type="submit" class="btn btn-success" style="background-color: green; color: white;">Guardar</button>
             </form>
         </div>
